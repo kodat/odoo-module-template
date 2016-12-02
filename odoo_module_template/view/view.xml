@@ -1,1 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data> 
 
+            <!-- Tree View -->
+            <record id="view_student_tree" model="ir.ui.view">
+            <field name="name">Tree View</field>
+            <field name="model">template.firstmodel</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                    <field name="name"/>
+                    <field name="select_field"/>
+                    <field name="boolean_field"/>
+                    <field name="integer_field" />
+                    <field name="float_field" />
+                    <field name="many2one_field" />
+                </tree>
+            </field>
+        	</record> 
+
+        <!-- Form View -->
+        <record id="view_student_tree" model="ir.ui.view">
+            <field name="name">Template Form</field>
+            <field name="model">template.firstmodel</field>
+            <field name="arch" type="xml">
+                <form string="Template Form">
+                	<sheet>
+                		<field name="image"  widget="image" class="oe_left oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}" />
+                		<field name="name" class="oe_inline" placeholder="Name" />
+                		<group>
+                			<group>
+                				<field name="select_field" />
+                				<field name="many2one_field" />
+                				<field name="boolean_field" />
+                			</group>
+                			<group>
+                				<field name="integer_field" />
+                				<field name="float_field" />
+                			</group>
+                		</group>
+                		    <notebook colspan="2" string="Notebook">
+                            	<page string="First Page">
+                            		<field name="many2many_ids" />
+                            	</page>
+                        		<page string="Second Page">
+                            		<tree string="Second Page Tree" editable="bottom">
+                                		<field name="ony2many_fields" />
+                            		</tree>
+                        		</page>
+                    		</notebook>
+
+                	</sheet>
+                </form>
+            </field>
+        </record>
+
+
+    	<record id="template_action1" model="ir.actions.act_window">
+            <field name="name">Template Action 1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">template.firstmodel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+    	<record id="template_action2" model="ir.actions.act_window">
+            <field name="name">Template Action 2</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">template.firstmodel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree, form, kanban</field>
+        </record>
+
+    	<record id="template_action3" model="ir.actions.act_window">
+            <field name="name">Template Action 3</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">template.firstmodel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree, form, kanban</field>
+        </record>
+
+    	<record id="template_action4" model="ir.actions.act_window">
+            <field name="name">Template Action 4</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">template.firstmodel</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree, form, kanban</field>
+        </record>
+
+    	<!-- Top Menu -->
+    	<menuitem name="Top Menu" id="template_top_menu"/>
+
+    	<!-- Next Level Menus -->
+
+    	<!-- First Sidebar Menus -->
+    	<menuitem name="Menu 1" id="template_menu1" parent="template_top_menu"/>
+    	<menuitem name="Menu1 Submenu 1" id="template_submenu11" parent="template_menu1"
+    	 action='template_action1' /> 
+    	<menuitem name="Menu1 Submenu 2" id="template_submenu12" parent="template_menu1"
+    	    	 action='template_action2' /> 
+    	<!-- Second Sidebar  Menus -->
+    	<menuitem name="Menu 2" id="template_menu2" parent="template_top_menu"/> 
+    	<menuitem name="Menu2 Submenu 1" id="template_submenu21" parent="template_menu2" 
+    	 action='template_action3' /> 
+    	<menuitem name="Menu2 Submenu 2" id="template_submenu22" parent="template_menu2" 
+    	 action='template_action4' /> 
+    </data>
+</openerp>
